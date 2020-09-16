@@ -104,3 +104,17 @@ For i = n To 1 Step -1
     End If
 Next
 End Sub
+
+Sub Numerotation()
+Dim x As Integer
+Dim diapo As Slide
+For Each diapo In ActivePresentation.Slides
+  If diapo.SlideShowTransition.Hidden = False Then
+    x = x + 1
+    diapo.HeadersFooters.Footer.Visible = True
+    diapo.HeadersFooters.Footer.Text = CStr(x)
+  Else
+    diapo.HeadersFooters.Footer.Visible = False
+  End If
+Next
+End Sub
